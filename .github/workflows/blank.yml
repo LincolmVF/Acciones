@@ -15,11 +15,25 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+
+    
   # This workflow contains a single job called "build"
   build:
+    env:
+      plataform: aws
+      region: us-east-1
+      account: 123456789012
+
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: "Muestrate papi"
         run: echo "Dico manooooo"
+      
+      - name: "Muestra las variables de entorno"
+        run: |
+          echo "Plataforma: ${{ env.plataform }}"
+          echo "Region: ${{ env.region }}"
+          echo "Account: ${{ env.account }}"
+
